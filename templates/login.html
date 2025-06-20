@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url("{{ url_for('static', filename='fini.jpg') }}");
+      background-size: 1500px 900px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      margin: 0;
+      padding-top: 150px;
+      text-align: center;
+      color: white;
+      text-shadow: 1px 1px 3px #000;
+    }
+
+    form {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      margin: 0 auto;
+    }
+
+    input {
+      display: block;
+      margin: 10px auto;
+      padding: 8px;
+      width: 90%;
+    }
+
+    button {
+      padding: 8px 20px;
+    }
+
+    .error {
+      color: red;
+      margin-top: 10px;
+      text-shadow: none;
+    }
+  </style>
+</head>
+<body>
+  <form method="post">
+    <h2>Iniciar sesión</h2>
+    <input type="text" name="username" placeholder="Usuario" required>
+    <input type="password" name="password" placeholder="Contraseña" required>
+    <button type="submit">Entrar</button>
+    {% if error %}
+      <div class="error">{{ error }}</div>
+    {% endif %}
+  </form>
+</body>
+</html>
+
